@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Mirror;
 
-public class SimpleMovement : MonoBehaviour
+public class SimpleMovement : NetworkBehaviour
 {
     void HandleMovement()
     {
-        if (true)
+        if (isLocalPlayer)
         {
             float moveHorizontal = Input.GetAxis("Horizontal");
             float moveVertical = Input.GetAxis("Vertical");
@@ -15,8 +15,7 @@ public class SimpleMovement : MonoBehaviour
             transform.position = transform.position + movement;
         }
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         HandleMovement();
